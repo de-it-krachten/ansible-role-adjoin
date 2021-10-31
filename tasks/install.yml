@@ -1,0 +1,5 @@
+---
+
+- name: Install all required packages
+  package:
+    name: "{{ adjoin_packages }}"

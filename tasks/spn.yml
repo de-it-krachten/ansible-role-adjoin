@@ -1,0 +1,22 @@
+---
+- name: Make dure all required variables ar provided
+  assert:
+    that:
+      - adjoin_spn is defined
+ 
+- name: Add SPN
+  shell: |
+    if klist -k | grep -q "{{ item }}/{{ inventory_hostname }}.{{ ad_realm }}"
+    then
+      exit 0
+    else
+      exec > /tmp/adcli.log 2>&1
+      adcli update -C --add-service-principal {{ item }}/{{ inventory_hostname }}.{{ ad_realm }} -v
+      [[ $? -eq 0 ]] && exit 1 || exit 2
+    fi
+  args:
+    executable: /bin/bash
+  register: _adcli
+  changed_when: _adcli.rc == 1
+  failed_when: _adcli.rc > 1
+  loop: "{{ adjoin_spn }}"

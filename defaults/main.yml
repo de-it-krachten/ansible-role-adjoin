@@ -1,4 +1,10 @@
 ---
 
+adjoin_command: realm
+adjoin_spn:
+  - nfs
+  - cifs
+
 ad_tls: true
 ad_leave: false
+ad_ldap_id_mapping: true
