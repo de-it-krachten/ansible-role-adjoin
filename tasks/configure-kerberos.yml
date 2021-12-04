@@ -26,8 +26,11 @@
 
 - name: Obtain kerberos ticket
   shell: |
+    set -o pipefail
     echo -n "{{ ad_password }}" | \ 
     kinit {{ ad_user }}@{{ ad_realm | upper }} && exit 1 || exit 2
+  args:
+    executable: /bin/bash
   register: _kinit
   changed_when: _kinit.rc == 1
   failed_when: _kinit.rc > 1

@@ -6,13 +6,17 @@
 
 - name: Test if enrolled into realm
   shell:
+    set -o pipefail
     realm list | awk 'NR==1'
+  args:
+    executable: /bin/bash
   changed_when: false
   check_mode: false
   register: _realm_check
 
 - name: Enroll into AD if not enrolled yet
   shell: |
+    set -o pipefail
     exec > /tmp/adcli.log 2>&1
     echo "{{ ad_password }}" | adcli join -v \
       --verbose {{ '--use-ldaps' if ad_tls|bool }} \
@@ -23,14 +27,19 @@
       --host-fqdn={{ inventory_hostname }} \
       --login-user={{ ad_user }} \
       --stdin-password
+  args:
+    executable: /bin/bash
   when:
     - adjoin_command == 'adcli'
     - _realm_check.stdout|length == 0
 
 - name: Enroll into AD if not enrolled yet
   shell: |
+    set -o pipefail
     exec > /tmp/realm.log 2>&1
     realm join -v {{ '--use-ldaps' if ad_tls|bool }} {{ ad_realm }}
+  args:
+    executable: /bin/bash
   when:
     - adjoin_command == 'realm'
     - _realm_check.stdout|length == 0

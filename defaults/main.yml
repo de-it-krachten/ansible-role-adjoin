@@ -1,10 +1,21 @@
 ---
 
+# AD realm
+ad_realm: example.com
+
+# Command used for joing host to AD
 adjoin_command: realm
+
+# Kerberos Service Principal Name (SPN) to create (keytabs)
 adjoin_spn:
   - nfs
   - cifs
 
+# Configure AD connection using SSL/TLS
 ad_tls: true
+
+# Leave the AD realm before joining it
 ad_leave: false
+
+# Use AD provided UID/GID
 ad_ldap_id_mapping: true

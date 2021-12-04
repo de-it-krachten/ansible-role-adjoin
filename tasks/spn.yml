@@ -6,6 +6,7 @@
  
 - name: Add SPN
   shell: |
+    set -o pipefail
     if klist -k | grep -q "{{ item }}/{{ inventory_hostname }}.{{ ad_realm }}"
     then
       exit 0
