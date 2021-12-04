@@ -12,4 +12,3 @@ adjoin_packages:
   - oddjob-mkhomedir
   - packagekit
   - krb5-user
-
