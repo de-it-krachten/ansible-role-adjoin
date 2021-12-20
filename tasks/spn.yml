@@ -22,4 +22,4 @@
   failed_when: _adcli.rc > 1
   loop: "{{ adjoin_spn }}"
   when:
-    - molecule_test is undefined
+    - not molecule_running

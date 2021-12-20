@@ -67,7 +67,10 @@ molecule:
     - ubuntu2004
   converge:
     playbooks: []
-    vars: {}
+    vars:
+      ad_realm: example.com
+      ad_user: test
+      ad_password: test
 
 # templates
 ci_templates:

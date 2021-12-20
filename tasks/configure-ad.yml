@@ -30,7 +30,7 @@
   args:
     executable: /bin/bash
   when:
-    - molecule_test is undefined
+    - not molecule_running
     - adjoin_command == 'adcli'
     - _realm_check.stdout|length == 0
 
@@ -42,6 +42,6 @@
   args:
     executable: /bin/bash
   when:
-    - molecule_test is undefined
+    - not molecule_running
     - adjoin_command == 'realm'
     - _realm_check.stdout|length == 0

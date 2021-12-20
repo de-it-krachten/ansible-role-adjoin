@@ -23,8 +23,6 @@ Supported platforms
 Role Variables
 --------------
 <pre><code>
-
-
 # AD realm
 ad_realm: example.com
 
@@ -51,8 +49,6 @@ Example Playbook
 ----------------
 
 <pre><code>
-
-
 - name: Converge
   hosts: all
   vars: null
