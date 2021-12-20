@@ -13,10 +13,10 @@ Supported platforms
 
 - CentOS 7
 - CentOS 8
-- Ubuntu 18.04 LTS
-- Ubuntu 20.04 LTS
 - Debian 10 (Buster)
 - Debian 11 (Bullseye)
+- Ubuntu 18.04 LTS
+- Ubuntu 20.04 LTS
 
 
 
@@ -52,11 +52,12 @@ Example Playbook
 
 <pre><code>
 
+
 - name: Converge
   hosts: all
+  vars: null
   tasks:
-
-    - name: "Include role 'ansible-role-adjoin'"
+    - name: Include role 'ansible-role-adjoin'
       include_role:
-        name: "ansible-role-adjoin"
+        name: ansible-role-adjoin
 </pre></code>

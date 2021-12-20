@@ -1,8 +1,13 @@
 ---
+
 - name: Converge
   hosts: all
+  vars:
+    ad_realm: example.com
+    ad_user: test
+    ad_password: test
+    molecule_test: true
   tasks:
-
-    - name: "Include role 'ansible-role-adjoin'"
+    - name: Include role 'ansible-role-adjoin'
       include_role:
-        name: "ansible-role-adjoin"
+        name: ansible-role-adjoin
