@@ -32,6 +32,8 @@
   when:
     - adjoin_command == 'adcli'
     - _realm_check.stdout|length == 0
+  tags:
+    - molecule-notest
 
 - name: Enroll into AD if not enrolled yet
   shell: |
@@ -43,3 +45,5 @@
   when:
     - adjoin_command == 'realm'
     - _realm_check.stdout|length == 0
+  tags:
+    - molecule-notest

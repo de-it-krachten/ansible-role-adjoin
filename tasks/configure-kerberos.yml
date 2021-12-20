@@ -34,4 +34,7 @@
   register: _kinit
   changed_when: _kinit.rc == 1
   failed_when: _kinit.rc > 1
-  when: klist.rc != 0
+  when:
+    - klist.rc != 0
+  tags:
+    - molecule-notest
