@@ -4,3 +4,4 @@
   service:
     name: sssd
     state: restarted
+  when: not molecule_running
