@@ -19,7 +19,7 @@ platforms:
   - name: Ubuntu 18.04 LTS
     image: ubuntu1804
   - name: Ubuntu 20.04 LTS
-    image: ubuntu2014
+    image: ubuntu2004
 
 # Ansible galaxy
 galaxy:
@@ -48,6 +48,7 @@ galaxy:
 github:
   active: true
   self_hosted: false
+  fail_fast: true
   owner: de-it-krachten
   repo: ansible-role-adjoin
 
@@ -71,6 +72,9 @@ molecule:
       ad_realm: example.com
       ad_user: test
       ad_password: test
+  prepare:
+    playbooks: []
+    vars: {}
 
 # templates
 ci_templates:
