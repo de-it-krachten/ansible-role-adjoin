@@ -1,0 +1,9 @@
+generic:
+  role_description: |
+    Enrolls a Linux host into a Microsoft Active Directory Domain using Kerberos
+molecule:
+  converge:
+    vars:
+      ad_password: test
+      ad_realm: example.com
+      ad_user: test
