@@ -3,9 +3,9 @@
 - name: Converge
   hosts: all
   vars:
+    ad_password: test
     ad_realm: example.com
     ad_user: test
-    ad_password: test
   tasks:
     - name: Include role 'ansible-role-adjoin'
       include_role:
