@@ -1,0 +1,109 @@
+generic:
+    role: ansible-role-adjoin
+    role_description: 'Enrolls a Linux host into a Microsoft Active Directory Domain using
+        Kerberos
+    
+        '
+    role_short: adjoin
+    
+platforms:
+    -   image: centos7
+        name: CentOS 7
+    -   image: centos8
+        name: CentOS 8
+    -   image: debian10
+        name: Debian 10 (Buster)
+    -   image: debian11
+        name: Debian 11 (Bullseye)
+    -   image: ubuntu1804
+        name: Ubuntu 18.04 LTS
+    -   image: ubuntu2004
+        name: Ubuntu 20.04 LTS
+    
+galaxy:
+    author: Mark van Huijstee
+    company: De IT Krachten BV
+    description: adjoin
+    license: MIT
+    min_ansible_version: 2.9
+    namespace: de_it_krachten
+    platforms:
+    -   name: EL
+        versions:
+        - 7
+        - 8
+    -   name: Debian
+        versions:
+        - buster
+        - bullseye
+    -   name: Ubuntu
+        versions:
+        - 18.04
+        - 20.04
+    role_name: adjoin
+    
+github:
+    active: true
+    fail_fast: true
+    owner: de-it-krachten
+    repo: ansible-role-adjoin
+    self_hosted: false
+    
+gitlab:
+    active: false
+    
+molecule:
+    active: true
+    converge:
+        playbooks: []
+        vars:
+            ad_password: test
+            ad_realm: example.com
+            ad_user: test
+    platforms:
+    - centos7
+    - centos8
+    - debian10
+    - debian11
+    - ubuntu1804
+    - ubuntu2004
+    prepare:
+        playbooks: []
+        vars: {}
+    
+ci_templates:
+    ci-self-hosted.yml:
+        dest: .github/workflows/ci.yml
+        src: github/templates/ci-self-hosted.yml
+        when: github_runner_self_hosted
+    ci.yml:
+        dest: .github/workflows/ci.yml
+        src: github/templates/ci.yml
+        when: github_runner_cloud
+    converge.yml:
+        dest: molecule/default/converge.yml
+        src: molecule/templates/converge.yml
+        when: molecule_active
+    gitignore:
+        dest: .gitignore
+        force: false
+        src: git/templates/gitignore
+    gitlab-ci.yml:
+        dest: .gitlab-ci.yml
+        src: gitlab/templates/gitlab-ci.yml
+        when: gitlab_active
+    meta-main.yml:
+        dest: meta/main.yml
+        src: galaxy/templates/meta-main.yml
+    molecule.yml:
+        dest: molecule/default/molecule.yml
+        src: molecule/templates/molecule.yml
+        when: molecule_active
+    prepare.yml:
+        dest: molecule/default/prepare.yml
+        src: molecule/templates/prepare.yml
+        when: molecule_active
+    yamllint:
+        dest: .yamllint
+        src: yamllint/templates/yamllint
+    
