@@ -1,6 +1,9 @@
+---
+
 generic:
   role_description: |
     Enrolls a Linux host into a Microsoft Active Directory Domain using Kerberos
+
 molecule:
   converge:
     vars:
