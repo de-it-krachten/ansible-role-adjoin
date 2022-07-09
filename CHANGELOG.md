@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/de-it-krachten/ansible-role-adjoin/compare/v1.0.0...v1.1.0) (2022-07-09)
+
+
+### Features
+
+* Add support for several newer platforms ([8e37c28](https://github.com/de-it-krachten/ansible-role-adjoin/commit/8e37c285814a796a27c61a931dc7960f6a4beb51))
+
 # 1.0.0 (2022-01-15)
 
 
