@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/de-it-krachten/ansible-role-adjoin/compare/v1.1.0...v1.2.0) (2022-07-28)
+
+
+### Features
+
+* Implement ansible-lint v6 support ([ee7f419](https://github.com/de-it-krachten/ansible-role-adjoin/commit/ee7f4191845e04a9396c36fefdefcaa7c6a825eb))
+
 # [1.1.0](https://github.com/de-it-krachten/ansible-role-adjoin/compare/v1.0.0...v1.1.0) (2022-07-09)
 
 
