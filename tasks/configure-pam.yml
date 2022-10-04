@@ -1,7 +1,7 @@
 ---
 
 - name: Configure PAM (RedHat/CentOS)
-  lineinfile:
+  ansible.builtin.lineinfile:
     path: /etc/pam.d/system-auth
     line: 'session     optional      pam_oddjob_mkhomedir.so umask=0077'
     insertafter: '^-session\s+optional\s+pam_systemd.so$'
@@ -10,7 +10,7 @@
   when: ansible_os_family == 'RedHat'
 
 - name: Configure PAM (Ubuntu)
-  template:
+  ansible.builtin.template:
     src: mkhomedir.j2
     dest: /usr/share/pam-configs/mkhomedir
     owner: root
@@ -20,5 +20,5 @@
   when: ansible_os_family == 'Debian'
     
 - name: Execute pam-auth-update
-  command: pam-auth-update --enable mkhomedir
+  ansible.builtin.command: pam-auth-update --enable mkhomedir
   when: _pam.changed and ansible_os_family == 'Debian'

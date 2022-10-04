@@ -1,11 +1,11 @@
 ---
 
 - name: Leave AD realm
-  command: realm leave {{ ad_realm }}
+  ansible.builtin.command: realm leave {{ ad_realm }}
   when: ad_leave|bool
 
 - name: Test if enrolled into realm
-  shell:
+  ansible.builtin.shell:
     set -o pipefail
     realm list | awk 'NR==1'
   args:
@@ -15,7 +15,7 @@
   register: _realm_check
 
 - name: Enroll into AD if not enrolled yet
-  shell: |
+  ansible.builtin.shell: |
     set -o pipefail
     exec > /tmp/adcli.log 2>&1
     echo "{{ ad_password }}" | adcli join -v \
@@ -36,7 +36,7 @@
     - molecule-notest
 
 - name: Enroll into AD if not enrolled yet
-  shell: |
+  ansible.builtin.shell: |
     set -o pipefail
     exec > /tmp/realm.log 2>&1
     realm join -v {{ '--use-ldaps' if ad_tls|bool }} {{ ad_realm }}

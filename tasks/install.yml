@@ -1,5 +1,5 @@
 ---
 
 - name: Install all required packages
-  package:
+  ansible.builtin.package:
     name: "{{ adjoin_packages }}"

@@ -1,7 +1,7 @@
 ---
 
 - name: Configure kerberos (krb5)
-  template:
+  ansible.builtin.template:
     src: krb5.conf.j2
     dest: /etc/krb5.conf
     owner: root
@@ -10,7 +10,7 @@
     backup: yes
 
 - name: Create krb5 conf directory
-  file:
+  ansible.builtin.file:
     path: /etc/krb5.conf.d
     state: directory
     owner: root
@@ -18,14 +18,14 @@
     mode: '0755'
 
 - name: Check for a valid kerberos ticket
-  command: klist -s
+  ansible.builtin.command: klist -s
   changed_when: false
   failed_when: false
   check_mode: false
   register: klist
 
 - name: Obtain kerberos ticket
-  shell: |
+  ansible.builtin.shell: |
     set -o pipefail
     echo -n "{{ ad_password }}" | \ 
     kinit {{ ad_user }}@{{ ad_realm | upper }} && exit 1 || exit 2
