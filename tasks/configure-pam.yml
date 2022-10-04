@@ -18,7 +18,7 @@
     mode: '0644'
   register: _pam
   when: ansible_os_family == 'Debian'
-    
+
 - name: Execute pam-auth-update
   ansible.builtin.command: pam-auth-update --enable mkhomedir
   when: _pam.changed and ansible_os_family == 'Debian'

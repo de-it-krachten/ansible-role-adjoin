@@ -2,7 +2,7 @@
 
 - name: Test if running in molecule
   ansible.builtin.set_fact:
-    molecule_running: "{{ True if (lookup('env','MOLECULE_FILE')|default('')|length)>0 else False }}"
+    molecule_running: "{{ True if (lookup('env', 'MOLECULE_FILE') | default('') | length) > 0 else False }}"
 
 - name: Load variables based on OS type
   ansible.builtin.include_vars: "{{ lookup('first_found', params) }}"

@@ -6,6 +6,15 @@
 Enrolls a Linux host into a Microsoft Active Directory Domain using Kerberos
 
 
+
+## Dependencies
+
+#### Roles
+None
+
+#### Collections
+None
+
 ## Platforms
 
 Supported platforms
@@ -54,6 +63,7 @@ ad_leave: false
 ad_ldap_id_mapping: true
 </pre></code>
 
+
 ### vars/family-RedHat.yml
 <pre><code>
 adjoin_packages:
@@ -63,10 +73,10 @@ adjoin_packages:
   - oddjob-mkhomedir
   - adcli
   - samba-common
-  #- samba-common-tools
+  # - samba-common-tools
   - krb5-workstation
   - openldap-clients
-  #- policycoreutils-python
+  # - policycoreutils-python
 </pre></code>
 
 ### vars/family-Debian.yml

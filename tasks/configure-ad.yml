@@ -2,7 +2,7 @@
 
 - name: Leave AD realm
   ansible.builtin.command: realm leave {{ ad_realm }}
-  when: ad_leave|bool
+  when: ad_leave | bool
 
 - name: Test if enrolled into realm
   ansible.builtin.shell:

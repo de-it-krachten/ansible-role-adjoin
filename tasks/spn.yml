@@ -3,7 +3,7 @@
   ansible.builtin.assert:
     that:
       - adjoin_spn is defined
- 
+
 - name: Add SPN
   ansible.builtin.shell: |
     set -o pipefail
