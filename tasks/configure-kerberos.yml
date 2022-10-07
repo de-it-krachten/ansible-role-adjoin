@@ -27,7 +27,7 @@
 - name: Obtain kerberos ticket
   ansible.builtin.shell: |
     set -o pipefail
-    echo -n "{{ ad_password }}" | \ 
+    echo -n "{{ ad_password }}" | \
     kinit {{ ad_user }}@{{ ad_realm | upper }} && exit 1 || exit 2
   args:
     executable: /bin/bash
