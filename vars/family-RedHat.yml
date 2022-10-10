@@ -7,7 +7,7 @@ adjoin_packages:
   - oddjob-mkhomedir
   - adcli
   - samba-common
-  #- samba-common-tools
+  # - samba-common-tools
   - krb5-workstation
   - openldap-clients
-  #- policycoreutils-python
+  # - policycoreutils-python
