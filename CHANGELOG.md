@@ -1,3 +1,11 @@
+# [1.3.0](https://github.com/de-it-krachten/ansible-role-adjoin/compare/v1.2.0...v1.3.0) (2022-10-12)
+
+
+### Features
+
+* Move to FQCN ([7cea070](https://github.com/de-it-krachten/ansible-role-adjoin/commit/7cea070c4253eeb5041754d89bf3d9a93ca2b21d))
+* Update CI to latest standards ([6d53eaa](https://github.com/de-it-krachten/ansible-role-adjoin/commit/6d53eaade6ecc581ea01552ebfc0afb593b27c68))
+
 # [1.2.0](https://github.com/de-it-krachten/ansible-role-adjoin/compare/v1.1.0...v1.2.0) (2022-07-28)
 
 
