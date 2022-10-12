@@ -1,11 +1,11 @@
 ---
 - name: Make dure all required variables ar provided
-  assert:
+  ansible.builtin.assert:
     that:
       - adjoin_spn is defined
- 
+
 - name: Add SPN
-  shell: |
+  ansible.builtin.shell: |
     set -o pipefail
     if klist -k | grep -q "{{ item }}/{{ inventory_hostname }}.{{ ad_realm }}"
     then

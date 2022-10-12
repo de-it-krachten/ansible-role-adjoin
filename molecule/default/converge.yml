@@ -9,5 +9,5 @@
     ad_user: test
   tasks:
     - name: Include role 'ansible-role-adjoin'
-      include_role:
+      ansible.builtin.include_role:
         name: ansible-role-adjoin

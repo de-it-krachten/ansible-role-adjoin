@@ -1,11 +1,11 @@
 ---
 
 - name: Test if running in molecule
-  set_fact:
-    molecule_running: "{{ True if (lookup('env','MOLECULE_FILE')|default('')|length)>0 else False }}"
+  ansible.builtin.set_fact:
+    molecule_running: "{{ True if (lookup('env', 'MOLECULE_FILE') | default('') | length) > 0 else False }}"
 
 - name: Load variables based on OS type
-  include_vars: "{{ lookup('first_found', params) }}"
+  ansible.builtin.include_vars: "{{ lookup('first_found', params) }}"
   vars:
     params:
       files:
@@ -17,9 +17,13 @@
       paths:
         - 'vars'
 
-- include_tasks: install.yml
-- include_tasks: configure-kerberos.yml
-- include_tasks: configure-pam.yml
-- include_tasks: configure-ad.yml
-- include_tasks: configure-sssd.yml
-- include_tasks: spn.yml
+- name: Include all tasks
+  ansible.builtin.include_tasks:
+    file: "{{ item }}"
+  loop:
+    - install.yml
+    - configure-kerberos.yml
+    - configure-pam.yml
+    - configure-ad.yml
+    - configure-sssd.yml
+    - spn.yml

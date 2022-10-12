@@ -1,7 +1,7 @@
 ---
 
 - name: Add AD server to inventory
-  add_host:
+  ansible.builtin.add_host:
     hostname: "{{ ad_server }}"
     ansible_host: "{{ ad_server }}"
     ansible_user: "{{ ad_user }}"
@@ -12,7 +12,7 @@
   changed_when: false
 
 - name: Check for NFS service principal with AD
-  win_shell: |
+  ansible.windows.win_shell: |
     setspn -L {{ inventory_hostname }}
   changed_when: false
   check_mode: no
@@ -21,7 +21,7 @@
   delegate_to: "{{ ad_server }}"
 
 - name: Register NFS service principal with AD
-  win_shell: |
+  ansible.windows.win_shell: |
     setspn -S nfs/{{ inventory_hostname }}.{{ ad_realm }} {{ inventory_hostname }}
   become: false
   when: _setspn is not search('nfs/'+inventory_hostname)
