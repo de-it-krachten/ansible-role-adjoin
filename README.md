@@ -27,6 +27,7 @@ Supported platforms
 - RockyLinux 8
 - RockyLinux 9
 - OracleLinux 8
+- OracleLinux 9
 - AlmaLinux 8
 - AlmaLinux 9
 - Debian 10 (Buster)
@@ -34,8 +35,8 @@ Supported platforms
 - Ubuntu 18.04 LTS
 - Ubuntu 20.04 LTS
 - Ubuntu 22.04 LTS
-- Fedora 35
 - Fedora 36
+- Fedora 37
 
 Note:
 <sup>1</sup> : no automated testing is performed on these platforms
@@ -103,7 +104,7 @@ adjoin_packages:
 <pre><code>
 - name: sample playbook for role 'adjoin'
   hosts: all
-  become: "{{ molecule['converge']['become'] | default('yes') }}"
+  become: "yes"
   vars:
     ad_password: test
     ad_realm: example.com

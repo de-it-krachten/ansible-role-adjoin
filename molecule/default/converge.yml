@@ -2,7 +2,7 @@
 
 - name: Converge
   hosts: all
-  become: "{{ molecule['converge']['become'] | default('yes') }}"
+  become: "yes"
   vars:
     ad_password: test
     ad_realm: example.com
