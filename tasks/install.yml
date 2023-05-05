@@ -3,3 +3,9 @@
 - name: Install all required packages
   ansible.builtin.package:
     name: "{{ adjoin_packages }}"
+
+- name: Start realmd
+  ansible.builtin.service:
+    name: realmd
+    state: started
+    enabled: yes
