@@ -1,15 +1,20 @@
 ---
 
+- name: Get list of all realms
+  ansible.builtin.command: realm list
+  changed_when: false
+  check_mode: false
+  register: _realm_check
+
 - name: Leave AD realm
   ansible.builtin.command: realm leave {{ ad_realm }}
-  when: ad_leave|bool
+  changed_when: true
+  when:
+    - ad_leave | bool
+    - _realm_check.stdout is search(ad_realm)
 
-- name: Test if enrolled into realm  # noqa no-free-form
-  ansible.builtin.shell:
-    set -o pipefail
-    realm list | awk 'NR==1'
-  args:
-    executable: /bin/bash
+- name: Get list of all realms
+  ansible.builtin.command: realm list
   changed_when: false
   check_mode: false
   register: _realm_check
@@ -29,9 +34,10 @@
       --stdin-password
   args:
     executable: /bin/bash
+  changed_when: true
   when:
     - adjoin_command == 'adcli'
-    - _realm_check.stdout|length == 0
+    - _realm_check.stdout is not search(ad_realm)
   tags:
     - molecule-notest
 
@@ -42,6 +48,7 @@
     realm join -v {{ '--use-ldaps' if ad_tls|bool }} {{ ad_realm }}
   args:
     executable: /bin/bash
+  changed_when: true
   when:
     - adjoin_command == 'realm'
     - _realm_check.stdout|length == 0

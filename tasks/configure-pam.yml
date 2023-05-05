@@ -21,4 +21,5 @@
 
 - name: Execute pam-auth-update
   ansible.builtin.command: pam-auth-update --enable mkhomedir
+  changed_when: true
   when: _pam.changed and ansible_os_family == 'Debian'
