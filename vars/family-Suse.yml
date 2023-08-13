@@ -1,0 +1,10 @@
+---
+
+adjoin_packages:
+  - krb5-client
+  - realmd
+  - adcli
+  - sssd
+  - sssd-ldap
+  - sssd-ad
+  - sssd-tools

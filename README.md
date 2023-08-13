@@ -84,6 +84,18 @@ adjoin_packages:
   - krb5-user
 </pre></code>
 
+### vars/family-Suse.yml
+<pre><code>
+adjoin_packages:
+  - krb5-client
+  - realmd
+  - adcli
+  - sssd
+  - sssd-ldap
+  - sssd-ad
+  - sssd-tools
+</pre></code>
+
 ### vars/family-RedHat.yml
 <pre><code>
 adjoin_packages:
