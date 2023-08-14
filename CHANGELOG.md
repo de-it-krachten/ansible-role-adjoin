@@ -1,3 +1,15 @@
+# [1.4.0](https://github.com/de-it-krachten/ansible-role-adjoin/compare/v1.3.0...v1.4.0) (2023-08-14)
+
+
+### Bug Fixes
+
+* Fix support for (Open)SUSE ([eb261c3](https://github.com/de-it-krachten/ansible-role-adjoin/commit/eb261c327169d97586f4ccad887bdaa1bdf5959f))
+
+
+### Features
+
+* Update supported platforms & CI ([fe53e26](https://github.com/de-it-krachten/ansible-role-adjoin/commit/fe53e26bab22aa21700f9508a8e1bf46b1285325))
+
 # [1.3.0](https://github.com/de-it-krachten/ansible-role-adjoin/compare/v1.2.0...v1.3.0) (2022-10-12)
 
 
