@@ -67,8 +67,7 @@ ad_leave: false
 ad_ldap_id_mapping: true
 </pre></code>
 
-
-### vars/family-Debian.yml
+### defaults/family-Debian.yml
 <pre><code>
 adjoin_packages:
   - realmd
@@ -84,7 +83,7 @@ adjoin_packages:
   - krb5-user
 </pre></code>
 
-### vars/family-Suse.yml
+### defaults/family-Suse.yml
 <pre><code>
 adjoin_packages:
   - krb5-client
@@ -96,7 +95,7 @@ adjoin_packages:
   - sssd-tools
 </pre></code>
 
-### vars/family-RedHat.yml
+### defaults/family-RedHat.yml
 <pre><code>
 adjoin_packages:
   - sssd
@@ -110,6 +109,7 @@ adjoin_packages:
   - openldap-clients
   # - policycoreutils-python
 </pre></code>
+
 
 
 
