@@ -13,8 +13,7 @@ Enrolls a Linux host into a Microsoft Active Directory Domain using Kerberos
 None
 
 #### Collections
-- community.general
-- ansible.windows
+None
 
 ## Platforms
 
@@ -32,13 +31,13 @@ Supported platforms
 - AlmaLinux 9
 - SUSE Linux Enterprise 15<sup>1</sup>
 - openSUSE Leap 15
-- Debian 10 (Buster)<sup>1</sup>
 - Debian 11 (Bullseye)
 - Debian 12 (Bookworm)
 - Ubuntu 20.04 LTS
 - Ubuntu 22.04 LTS
-- Fedora 37
-- Fedora 38
+- Ubuntu 24.04 LTS
+- Fedora 39
+- Fedora 40
 
 Note:
 <sup>1</sup> : no automated testing is performed on these platforms
@@ -67,6 +66,33 @@ ad_leave: false
 ad_ldap_id_mapping: true
 </pre></code>
 
+### defaults/family-RedHat.yml
+<pre><code>
+adjoin_packages:
+  - sssd
+  - realmd
+  - oddjob
+  - oddjob-mkhomedir
+  - adcli
+  - samba-common
+  # - samba-common-tools
+  - krb5-workstation
+  - openldap-clients
+  # - policycoreutils-python
+</pre></code>
+
+### defaults/family-Suse.yml
+<pre><code>
+adjoin_packages:
+  - krb5-client
+  - realmd
+  - adcli
+  - sssd
+  - sssd-ldap
+  - sssd-ad
+  - sssd-tools
+</pre></code>
+
 ### defaults/family-Debian.yml
 <pre><code>
 adjoin_packages:
@@ -83,33 +109,6 @@ adjoin_packages:
   - krb5-user
 </pre></code>
 
-### defaults/family-Suse.yml
-<pre><code>
-adjoin_packages:
-  - krb5-client
-  - realmd
-  - adcli
-  - sssd
-  - sssd-ldap
-  - sssd-ad
-  - sssd-tools
-</pre></code>
-
-### defaults/family-RedHat.yml
-<pre><code>
-adjoin_packages:
-  - sssd
-  - realmd
-  - oddjob
-  - oddjob-mkhomedir
-  - adcli
-  - samba-common
-  # - samba-common-tools
-  - krb5-workstation
-  - openldap-clients
-  # - policycoreutils-python
-</pre></code>
-
 
 
 
@@ -118,7 +117,7 @@ adjoin_packages:
 <pre><code>
 - name: sample playbook for role 'adjoin'
   hosts: all
-  become: "yes"
+  become: 'yes'
   vars:
     ad_password: test
     ad_realm: example.com
