@@ -46,24 +46,42 @@ Note:
 ### defaults/main.yml
 <pre><code>
 # AD realm
-ad_realm: example.com
+# adjoin_realm: example.com
 
 # Command used for joing host to AD
 adjoin_command: realm
 
 # Kerberos Service Principal Name (SPN) to create (keytabs)
-adjoin_spn:
-  - nfs
-  - cifs
+adjoin_spn: []
+# adjoin_spn: [ nfs, cifs ]
 
 # Configure AD connection using SSL/TLS
-ad_tls: true
+adjoin_tls: true
 
 # Leave the AD realm before joining it
-ad_leave: false
+adjoin_leave: false
 
 # Use AD provided UID/GID
-ad_ldap_id_mapping: true
+adjoin_ldap_id_mapping: true
+
+# SSSD template to use
+adjoin_sssd_template: sssd.conf.j2
+</pre></code>
+
+### defaults/family-Debian.yml
+<pre><code>
+adjoin_packages:
+  - realmd
+  - libnss-sss
+  - libpam-sss
+  - sssd
+  - sssd-tools
+  - adcli
+  - samba-common-bin
+  - oddjob
+  - oddjob-mkhomedir
+  - packagekit
+  - krb5-user
 </pre></code>
 
 ### defaults/family-RedHat.yml
@@ -93,22 +111,6 @@ adjoin_packages:
   - sssd-tools
 </pre></code>
 
-### defaults/family-Debian.yml
-<pre><code>
-adjoin_packages:
-  - realmd
-  - libnss-sss
-  - libpam-sss
-  - sssd
-  - sssd-tools
-  - adcli
-  - samba-common-bin
-  - oddjob
-  - oddjob-mkhomedir
-  - packagekit
-  - krb5-user
-</pre></code>
-
 
 
 
@@ -119,9 +121,9 @@ adjoin_packages:
   hosts: all
   become: 'yes'
   vars:
-    ad_password: test
-    ad_realm: example.com
-    ad_user: test
+    adjoin_password: test
+    adjoin_realm: example.com
+    adjoin_user: test
   tasks:
     - name: Include role 'adjoin'
       ansible.builtin.include_role:

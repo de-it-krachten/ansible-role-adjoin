@@ -1,5 +1,10 @@
 ---
 
+- name: Make sure all required variables are provided
+  ansible.builtin.assert:
+    that:
+      - adjoin_realm is defined
+
 - name: Test if running in molecule
   ansible.builtin.set_fact:
     molecule_running: "{{ True if (lookup('env', 'MOLECULE_FILE') | default('') | length) > 0 else False }}"

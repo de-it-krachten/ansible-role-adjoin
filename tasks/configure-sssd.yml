@@ -2,7 +2,7 @@
 
 - name: Configure sssd
   ansible.builtin.template:
-    src: sssd.conf.j2
+    src: "{{ adjoin_sssd_template }}"
     dest: /etc/sssd/sssd.conf
     owner: root
     group: root
