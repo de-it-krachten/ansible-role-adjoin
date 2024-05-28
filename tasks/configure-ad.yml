@@ -7,11 +7,11 @@
   register: _realm_check
 
 - name: Leave AD realm
-  ansible.builtin.command: realm leave {{ ad_realm }}
+  ansible.builtin.command: realm leave {{ adjoin_realm }}
   changed_when: true
   when:
-    - ad_leave | bool
-    - _realm_check.stdout is search(ad_realm)
+    - adjoin_leave | bool
+    - _realm_check.stdout is search(adjoin_realm)
 
 - name: Get list of all realms
   ansible.builtin.command: realm list
@@ -23,21 +23,21 @@
   ansible.builtin.shell: |
     set -o pipefail
     exec > /tmp/adcli.log 2>&1
-    echo "{{ ad_password }}" | adcli join -v \
-      --verbose {{ '--use-ldaps' if ad_tls|bool }} \
-      --domain={{ ad_realm }} \
-      --domain-controller={{ ad_servers | first }} \
-      --domain-realm={{ ad_realm | upper }} \
+    echo "{{ adjoin_password }}" | adcli join -v \
+      --verbose {{ '--use-ldaps' if adjoin_tls|bool }} \
+      --domain={{ adjoin_realm }} \
+      --domain-controller={{ adjoin_servers | first }} \
+      --domain-realm={{ adjoin_realm | upper }} \
       --computer-name={{ inventory_hostname }} \
       --host-fqdn={{ inventory_hostname }} \
-      --login-user={{ ad_user }} \
+      --login-user={{ adjoin_user }} \
       --stdin-password
   args:
     executable: /bin/bash
   changed_when: true
   when:
     - adjoin_command == 'adcli'
-    - _realm_check.stdout is not search(ad_realm)
+    - _realm_check.stdout is not search(adjoin_realm)
   tags:
     - molecule-notest
 
@@ -45,7 +45,7 @@
   ansible.builtin.shell: |
     set -o pipefail
     exec > /tmp/realm.log 2>&1
-    realm join -v {{ '--use-ldaps' if ad_tls|bool }} {{ ad_realm }}
+    realm join -v {{ '--use-ldaps' if adjoin_tls|bool }} {{ adjoin_realm }}
   args:
     executable: /bin/bash
   changed_when: true

@@ -2,10 +2,10 @@
 
 - name: Add AD server to inventory
   ansible.builtin.add_host:
-    hostname: "{{ ad_server }}"
-    ansible_host: "{{ ad_server }}"
-    ansible_user: "{{ ad_user }}"
-    ansible_password: "{{ ad_password }}"
+    hostname: "{{ adjoin_server }}"
+    ansible_host: "{{ adjoin_server }}"
+    ansible_user: "{{ adjoin_user }}"
+    ansible_password: "{{ adjoin_password }}"
     ansible_connection: winrm
     ansible_winrm_scheme: http
     ansible_port: 5985
@@ -18,11 +18,11 @@
   check_mode: no
   become: false
   register: _setspn
-  delegate_to: "{{ ad_server }}"
+  delegate_to: "{{ adjoin_server }}"
 
 - name: Register NFS service principal with AD
   ansible.windows.win_shell: |
-    setspn -S nfs/{{ inventory_hostname }}.{{ ad_realm }} {{ inventory_hostname }}
+    setspn -S nfs/{{ inventory_hostname }}.{{ adjoin_realm }} {{ inventory_hostname }}
   become: false
   when: _setspn is not search('nfs/'+inventory_hostname)
-  delegate_to: "{{ ad_server }}"
+  delegate_to: "{{ adjoin_server }}"

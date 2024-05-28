@@ -4,9 +4,9 @@
   hosts: all
   become: "yes"
   vars:
-    ad_password: test
-    ad_realm: example.com
-    ad_user: test
+    adjoin_password: test
+    adjoin_realm: example.com
+    adjoin_user: test
   tasks:
     - name: Include role 'ansible-role-adjoin'
       ansible.builtin.include_role:
