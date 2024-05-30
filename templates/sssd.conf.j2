@@ -1,6 +1,6 @@
 [sssd]
 services=nss,pam,pac
-domains={{ ad_realm }}
+domains={{ adjoin_realm }}
 
 [nss]
 filter_groups=root
@@ -9,16 +9,16 @@ filter_users=root
 [pam]
 offline_credentials_expiration=2
 
-[domain/{{ ad_realm | lower }}]
+[domain/{{ adjoin_realm | lower }}]
 debug = {{ sssd_debug | default('0') }}
-ad_domain = {{ ad_realm | lower }}
-krb5_realm = {{ ad_realm | upper }}
+adjoin_domain = {{ adjoin_realm | lower }}
+krb5_realm = {{ adjoin_realm | upper }}
 cache_credentials = True
 id_provider = ad
 krb5_store_password_if_offline = True
 default_shell = /bin/bash
-ldap_id_mapping = {{ ad_ldap_id_mapping }}
+ldap_id_mapping = {{ adjoin_ldap_id_mapping }}
 use_fully_qualified_names = False
 fallback_homedir = /home/%u
 access_provider = ad
-ad_use_ldaps={{ 'true' if ad_tls|bool else 'false' }}
+adjoin_use_ldaps={{ 'true' if adjoin_tls|bool else 'false' }}

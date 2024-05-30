@@ -13,8 +13,7 @@ Enrolls a Linux host into a Microsoft Active Directory Domain using Kerberos
 None
 
 #### Collections
-- community.general
-- ansible.windows
+None
 
 ## Platforms
 
@@ -32,13 +31,13 @@ Supported platforms
 - AlmaLinux 9
 - SUSE Linux Enterprise 15<sup>1</sup>
 - openSUSE Leap 15
-- Debian 10 (Buster)<sup>1</sup>
 - Debian 11 (Bullseye)
 - Debian 12 (Bookworm)
 - Ubuntu 20.04 LTS
 - Ubuntu 22.04 LTS
-- Fedora 37
-- Fedora 38
+- Ubuntu 24.04 LTS
+- Fedora 39
+- Fedora 40
 
 Note:
 <sup>1</sup> : no automated testing is performed on these platforms
@@ -47,24 +46,26 @@ Note:
 ### defaults/main.yml
 <pre><code>
 # AD realm
-ad_realm: example.com
+# adjoin_realm: example.com
 
 # Command used for joing host to AD
 adjoin_command: realm
 
 # Kerberos Service Principal Name (SPN) to create (keytabs)
-adjoin_spn:
-  - nfs
-  - cifs
+adjoin_spn: []
+# adjoin_spn: [ nfs, cifs ]
 
 # Configure AD connection using SSL/TLS
-ad_tls: true
+adjoin_tls: true
 
 # Leave the AD realm before joining it
-ad_leave: false
+adjoin_leave: false
 
 # Use AD provided UID/GID
-ad_ldap_id_mapping: true
+adjoin_ldap_id_mapping: true
+
+# SSSD template to use
+adjoin_sssd_template: sssd.conf.j2
 </pre></code>
 
 ### defaults/family-Debian.yml
@@ -83,18 +84,6 @@ adjoin_packages:
   - krb5-user
 </pre></code>
 
-### defaults/family-Suse.yml
-<pre><code>
-adjoin_packages:
-  - krb5-client
-  - realmd
-  - adcli
-  - sssd
-  - sssd-ldap
-  - sssd-ad
-  - sssd-tools
-</pre></code>
-
 ### defaults/family-RedHat.yml
 <pre><code>
 adjoin_packages:
@@ -110,6 +99,18 @@ adjoin_packages:
   # - policycoreutils-python
 </pre></code>
 
+### defaults/family-Suse.yml
+<pre><code>
+adjoin_packages:
+  - krb5-client
+  - realmd
+  - adcli
+  - sssd
+  - sssd-ldap
+  - sssd-ad
+  - sssd-tools
+</pre></code>
+
 
 
 
@@ -118,11 +119,11 @@ adjoin_packages:
 <pre><code>
 - name: sample playbook for role 'adjoin'
   hosts: all
-  become: "yes"
+  become: 'yes'
   vars:
-    ad_password: test
-    ad_realm: example.com
-    ad_user: test
+    adjoin_password: test
+    adjoin_realm: example.com
+    adjoin_user: test
   tasks:
     - name: Include role 'adjoin'
       ansible.builtin.include_role:

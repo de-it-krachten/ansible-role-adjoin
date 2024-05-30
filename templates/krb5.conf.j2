@@ -8,7 +8,7 @@ includedir /var/lib/sss/pubconf/krb5.include.d/
   admin_server = FILE:/var/log/kadmind.log
  
 [libdefaults]
-  default_realm = {{ ad_realm | upper }}
+  default_realm = {{ adjoin_realm | upper }}
 
   dns_lookup_realm = false
   ticket_lifetime = 24h
@@ -21,10 +21,10 @@ includedir /var/lib/sss/pubconf/krb5.include.d/
 
 
 [realms]
-  {{ ad_realm | upper }} = {
+  {{ adjoin_realm | upper }} = {
   }
  
 [domain_realm]
  
-  {{ ad_realm | lower }} = {{ ad_realm | upper }}
-  .{{ ad_realm | lower }} = {{ ad_realm | upper }}
+  {{ adjoin_realm | lower }} = {{ adjoin_realm | upper }}
+  .{{ adjoin_realm | lower }} = {{ adjoin_realm | upper }}
