@@ -1,3 +1,11 @@
+# [1.5.0](https://github.com/de-it-krachten/ansible-role-adjoin/compare/v1.4.0...v1.5.0) (2024-05-30)
+
+
+### Features
+
+* Add support for Ubuntu 24.04 / Fedora 40 ([2e54c92](https://github.com/de-it-krachten/ansible-role-adjoin/commit/2e54c92b966b24082950250e689808d6fbefca21))
+* Move all variables from ad_ to adjoin_ ([cc6f21f](https://github.com/de-it-krachten/ansible-role-adjoin/commit/cc6f21fc179a95cbb26c1eeb450d52ea7ee3da09))
+
 # [1.4.0](https://github.com/de-it-krachten/ansible-role-adjoin/compare/v1.3.0...v1.4.0) (2023-08-14)
 
 
