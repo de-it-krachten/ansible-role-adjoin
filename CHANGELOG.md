@@ -1,3 +1,10 @@
+## [1.5.1](https://github.com/de-it-krachten/ansible-role-adjoin/compare/v1.5.0...v1.5.1) (2024-06-04)
+
+
+### Bug Fixes
+
+* Remove password from log ([84716b9](https://github.com/de-it-krachten/ansible-role-adjoin/commit/84716b9922c5d1b4b9d7e20c27f9c759e3819d11))
+
 # [1.5.0](https://github.com/de-it-krachten/ansible-role-adjoin/compare/v1.4.0...v1.5.0) (2024-05-30)
 
 
