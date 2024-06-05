@@ -11,6 +11,10 @@ includedir /var/lib/sss/pubconf/krb5.include.d/
   default_realm = {{ adjoin_realm | upper }}
 
   dns_lookup_realm = false
+{% if adjoin_ad_server is defined and adjoin_ad_server | length > 0 %}
+  dns_lookup_kdc = false
+{% endif %}
+
   ticket_lifetime = 24h
   renew_lifetime = 7d
   forwardable = true
@@ -22,6 +26,9 @@ includedir /var/lib/sss/pubconf/krb5.include.d/
 
 [realms]
   {{ adjoin_realm | upper }} = {
+{% if adjoin_ad_server is defined and adjoin_ad_server | length > 0 %}
+  kdc = {{ adjoin_ad_server }}
+{% endif %}
   }
  
 [domain_realm]
