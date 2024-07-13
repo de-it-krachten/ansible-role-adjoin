@@ -1,9 +1,20 @@
 ---
 
+# Generic
 generic:
   role_description: |
     Enrolls a Linux host into a Microsoft Active Directory Domain using Kerberos
 
+# Supported platforms
+platforms:
+  opensuse15:
+    ci: false
+    supported: false
+  sles15:
+    ci: false
+    supported: false
+
+# Molecuke
 molecule:
   converge:
     vars:
