@@ -1,3 +1,11 @@
+# [1.6.0](https://github.com/de-it-krachten/ansible-role-adjoin/compare/v1.5.1...v1.6.0) (2024-07-13)
+
+
+### Features
+
+* Add support for connecting to a specific AD server ([1a11a80](https://github.com/de-it-krachten/ansible-role-adjoin/commit/1a11a80a729ee22179d6e7e4803be375112be436))
+* Remove support for RHEL/CentOS 7 ([b5eb001](https://github.com/de-it-krachten/ansible-role-adjoin/commit/b5eb001e108ee31991c336a1b7f3ac6f658006cb))
+
 ## [1.5.1](https://github.com/de-it-krachten/ansible-role-adjoin/compare/v1.5.0...v1.5.1) (2024-06-04)
 
 
