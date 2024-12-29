@@ -1,3 +1,10 @@
+# [1.7.0](https://github.com/de-it-krachten/ansible-role-adjoin/compare/v1.6.0...v1.7.0) (2024-12-29)
+
+
+### Features
+
+* Update supported platforms & CI ([314e787](https://github.com/de-it-krachten/ansible-role-adjoin/commit/314e787ffcebd01be063e885d19941ab5c031c1c))
+
 # [1.6.0](https://github.com/de-it-krachten/ansible-role-adjoin/compare/v1.5.1...v1.6.0) (2024-07-13)
 
 
