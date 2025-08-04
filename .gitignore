@@ -3,3 +3,4 @@ molecule/default/tests/__pycache__
 .converted
 #molecule/default/molecule.yml
 defaults/defaults-*
+/.ansible/
