@@ -34,14 +34,14 @@ Supported platforms
 - Debian 11 (Bullseye)
 - Debian 12 (Bookworm)
 - Debian 13 (Trixie)
-- Ubuntu 20.04 LTS
 - Ubuntu 22.04 LTS
 - Ubuntu 24.04 LTS
-- Fedora 41
 - Fedora 42
+- Fedora 43
 
 Note:
 <sup>1</sup> : no automated testing is performed on these platforms
+
 
 ## Role Variables
 ### defaults/main.yml
@@ -122,6 +122,7 @@ adjoin_packages:
   hosts: all
   become: 'yes'
   vars:
+    molecule_driver: '{{ lookup(''env'', ''MOLECULE_DRIVER_NAME'') }}'
     adjoin_password: test
     adjoin_realm: example.com
     adjoin_user: test

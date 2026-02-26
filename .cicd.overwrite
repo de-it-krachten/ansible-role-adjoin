@@ -10,7 +10,13 @@ platforms:
   opensuse15:
     ci: false
     supported: false
+  opensuse16:
+    ci: false
+    supported: false
   sles15:
+    ci: false
+    supported: false
+  sles16:
     ci: false
     supported: false
 

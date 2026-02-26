@@ -4,6 +4,7 @@
   hosts: all
   become: "yes"
   vars:
+    molecule_driver: "{{ lookup('env', 'MOLECULE_DRIVER_NAME') }}"
     adjoin_password: test
     adjoin_realm: example.com
     adjoin_user: test

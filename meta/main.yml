@@ -21,9 +21,9 @@ galaxy_info:
         - trixie
     - name: Ubuntu
       versions:
-        - focal
         - jammy
     - name: Fedora
       versions:
-        - all
+        - '42'
+        - '43'
 dependencies: []
