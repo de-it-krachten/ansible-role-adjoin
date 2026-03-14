@@ -1,3 +1,10 @@
+# [1.9.0](https://github.com/de-it-krachten/ansible-role-adjoin/compare/v1.8.0...v1.9.0) (2026-03-14)
+
+
+### Features
+
+* Drop support for Ubuntu 20.04 LTS ([ba2e59c](https://github.com/de-it-krachten/ansible-role-adjoin/commit/ba2e59c65bca1b6ab9503e27b535f610959a6ce4))
+
 # [1.8.0](https://github.com/de-it-krachten/ansible-role-adjoin/compare/v1.7.0...v1.8.0) (2025-08-04)
 
 
