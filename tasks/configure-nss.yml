@@ -1,0 +1,11 @@
+---
+
+- name: Configure /etc/nsswitch.conf
+  ansible.builtin.replace:
+    path: /etc/nsswitch.conf
+    regexp: "^{{ item.key }}:.*"
+    replace: "{{ (item.key + ':') }}{{ ' ' * blanks }}{{ item.value }}"
+    backup: true
+  loop: "{{ adjoin_nss | dict2items }}"
+  vars:
+    blanks: "{{ adjoin_nss_ljust | int - (item.key | length + 1) }}"

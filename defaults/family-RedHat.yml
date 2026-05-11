@@ -1,5 +1,7 @@
 ---
 
+adjoin_nss_ljust: 13
+
 adjoin_packages:
   - sssd
   - realmd

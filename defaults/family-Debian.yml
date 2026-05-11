@@ -1,5 +1,7 @@
 ---
 
+adjoin_nss_ljust: 18
+
 adjoin_packages:
   - realmd
   - libnss-sss

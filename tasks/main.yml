@@ -22,4 +22,5 @@
     - configure-pam.yml
     - configure-ad.yml
     - configure-sssd.yml
+    - configure-nss.yml
     - spn.yml

@@ -22,3 +22,7 @@ adjoin_ldap_id_mapping: true
 # SSSD template to use
 adjoin_sssd_template: sssd.conf.j2
 
+# Enforce specific order in /etc/nsswitch.conf
+adjoin_nss:
+  passwd: "files sss systemd"
+  group: "files sss systemd"
