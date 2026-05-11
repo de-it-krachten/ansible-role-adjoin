@@ -36,8 +36,9 @@ Supported platforms
 - Debian 13 (Trixie)
 - Ubuntu 22.04 LTS
 - Ubuntu 24.04 LTS
-- Fedora 42
+- Ubuntu 26.04 LTS
 - Fedora 43
+- Fedora 44<sup>1</sup>
 
 Note:
 <sup>1</sup> : no automated testing is performed on these platforms
@@ -67,10 +68,19 @@ adjoin_ldap_id_mapping: true
 
 # SSSD template to use
 adjoin_sssd_template: sssd.conf.j2
+
+# Enforce specific order in /etc/nsswitch.conf
+adjoin_nss:
+  passwd: "files sss systemd"
+  group: "files sss systemd"
 </pre></code>
 
 ### defaults/family-Debian.yml
 <pre><code>
+# Character to start values from
+adjoin_nss_ljust: 18
+
+# List of OS packages required
 adjoin_packages:
   - realmd
   - libnss-sss
@@ -87,6 +97,10 @@ adjoin_packages:
 
 ### defaults/family-RedHat.yml
 <pre><code>
+# Character to start values from
+adjoin_nss_ljust: 13
+
+# List of OS packages required
 adjoin_packages:
   - sssd
   - realmd
@@ -102,6 +116,10 @@ adjoin_packages:
 
 ### defaults/family-Suse.yml
 <pre><code>
+# Character to start values from
+adjoin_nss_ljust: 13
+
+# List of OS packages required
 adjoin_packages:
   - krb5-client
   - realmd

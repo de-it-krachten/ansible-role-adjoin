@@ -3,9 +3,11 @@
 - name: Configure /etc/nsswitch.conf
   ansible.builtin.replace:
     path: /etc/nsswitch.conf
-    regexp: "^{{ item.key }}:.*"
-    replace: "{{ (item.key + ':') }}{{ ' ' * blanks }}{{ item.value }}"
+    regexp: "^{{ nssentry.key }}:.*"
+    replace: "{{ (nssentry.key + ':') }}{{ ' ' * (blanks | int) }}{{ nssentry.value }}"
     backup: true
   loop: "{{ adjoin_nss | dict2items }}"
+  loop_control:
+    loop_var: nssentry
   vars:
-    blanks: "{{ adjoin_nss_ljust | int - (item.key | length + 1) }}"
+    blanks: "{{ adjoin_nss_ljust | int - (nssentry.key | length + 2) }}"

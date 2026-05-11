@@ -1,7 +1,9 @@
 ---
 
+# Character to start values from
 adjoin_nss_ljust: 13
 
+# List of OS packages required
 adjoin_packages:
   - krb5-client
   - realmd

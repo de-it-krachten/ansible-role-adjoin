@@ -15,7 +15,7 @@
 
 - name: Include all tasks
   ansible.builtin.include_tasks:
-    file: "{{ item }}"
+    file: "{{ tl }}"
   loop:
     - install.yml
     - configure-kerberos.yml
@@ -24,3 +24,5 @@
     - configure-sssd.yml
     - configure-nss.yml
     - spn.yml
+  loop_control:
+    loop_var: tl
