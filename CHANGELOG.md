@@ -1,3 +1,17 @@
+# [1.10.0](https://github.com/de-it-krachten/ansible-role-adjoin/compare/v1.9.0...v1.10.0) (2026-05-11)
+
+
+### Bug Fixes
+
+* Ensure proper nsswitch configuration ([77e230c](https://github.com/de-it-krachten/ansible-role-adjoin/commit/77e230cfb76deb91f871bdf3f21766f65d7ac2ec))
+
+
+### Features
+
+* Added support for Fedora 44 ([336cd20](https://github.com/de-it-krachten/ansible-role-adjoin/commit/336cd20597c278c47c6f30c9ea7a9c619c6da519))
+* Added support for Ubuntu 26.04 LTS ([919c627](https://github.com/de-it-krachten/ansible-role-adjoin/commit/919c6277059fc1c58d60de89dcb4dd2deface614))
+* Drop support for Fedora 42 ([a682c89](https://github.com/de-it-krachten/ansible-role-adjoin/commit/a682c89ad5d80e0563bdaf9d7289d46463e68594))
+
 # [1.9.0](https://github.com/de-it-krachten/ansible-role-adjoin/compare/v1.8.0...v1.9.0) (2026-03-14)
 
 
