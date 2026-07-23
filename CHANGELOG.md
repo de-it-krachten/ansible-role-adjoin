@@ -1,3 +1,16 @@
+# [1.11.0](https://github.com/de-it-krachten/ansible-role-adjoin/compare/v1.10.0...v1.11.0) (2026-07-23)
+
+
+### Bug Fixes
+
+* Standarize vars.yml ([328482d](https://github.com/de-it-krachten/ansible-role-adjoin/commit/328482d1b9643b7a3a89387e46bef9b460dcc7de))
+
+
+### Features
+
+* Add support for ansible 2.20 ([34e20be](https://github.com/de-it-krachten/ansible-role-adjoin/commit/34e20be2f394f3f8ad386773bb0ae484dc250a32))
+* Add support for ansible-core 2.20+ ([1ababfe](https://github.com/de-it-krachten/ansible-role-adjoin/commit/1ababfeb707d3689abcf20ce15116b1d816799f4))
+
 # [1.10.0](https://github.com/de-it-krachten/ansible-role-adjoin/compare/v1.9.0...v1.10.0) (2026-05-11)
 
 
