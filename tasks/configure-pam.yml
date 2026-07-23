@@ -7,7 +7,7 @@
     insertafter: '^-session\s+optional\s+pam_systemd.so$'
     backup: yes
   register: _pam
-  when: ansible_os_family == 'RedHat'
+  when: ansible_facts.os_family == 'RedHat'
 
 - name: Configure PAM (Ubuntu)
   ansible.builtin.template:
@@ -17,9 +17,9 @@
     group: root
     mode: '0644'
   register: _pam
-  when: ansible_os_family == 'Debian'
+  when: ansible_facts.os_family == 'Debian'
 
 - name: Execute pam-auth-update
   ansible.builtin.command: pam-auth-update --enable mkhomedir
   changed_when: true
-  when: _pam.changed and ansible_os_family == 'Debian'
+  when: _pam.changed and ansible_facts.os_family == 'Debian'
