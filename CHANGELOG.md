@@ -1,3 +1,10 @@
+# [1.12.0](https://github.com/de-it-krachten/ansible-role-adjoin/compare/v1.11.0...v1.12.0) (2026-10-13)
+
+
+### Features
+
+* Drop support for Debian 11 (Bullseye) ([de53e92](https://github.com/de-it-krachten/ansible-role-adjoin/commit/de53e928c94b05cb10a9c144bba7c144a5d70b9e))
+
 # [1.11.0](https://github.com/de-it-krachten/ansible-role-adjoin/compare/v1.10.0...v1.11.0) (2026-07-23)
 
 
